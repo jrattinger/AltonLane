@@ -111,11 +111,21 @@ define('Transaction.Line.Views.Cell.Actionable.View'
             var guid='',idcs='';
             for(var mo=0;mo<myOptions.length;mo++){
                 var label=this.model.get('options').models[mo].get('label');
-                if(label=='Custom Shoe GUID'){
-                    guid=this.model.get('options').models[mo].get('value').internalid;
+                if(label=='Custom Shoe GUID'){	                    
+                    try{
+                        guid=this.model.get('options').models[mo].get('value').internalid;
+                    }
+                    catch(e){
+                        guid='';
+                    }
                 }
                 if(label=='Custom Shoe IDCS'){
+                    try{
                        idcs=this.model.get('options').models[mo].get('value').internalid;
+                       }
+                    catch(e){
+                        idcs='';
+                    }
                 }
             }
             var _3dImage='',companyID=SC.ENVIRONMENT.companyId;

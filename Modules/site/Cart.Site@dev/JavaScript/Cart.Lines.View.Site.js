@@ -34,11 +34,23 @@ define('Cart.Lines.View.Site', [
             var guid='',idcs='';
             for(var mo=0;mo<myOptions.length;mo++){
                 var label=this.model.get('options').models[mo].get('label');
+                console.log('label',label);
                 if(label=='Custom Shoe GUID'){
-                    guid=this.model.get('options').models[mo].get('value').internalid;
+                    try{
+                        guid=this.model.get('options').models[mo].get('value').internalid;
+                    }
+                    catch(e){
+                        guid='';
+                    }
+                    
                 }
                 if(label=='Custom Shoe IDCS'){
+                    try{
                        idcs=this.model.get('options').models[mo].get('value').internalid;
+                       }
+                    catch(e){
+                        idcs='';
+                    }
                 }
             }
             var _3dImage='',companyID=SC.ENVIRONMENT.companyId;

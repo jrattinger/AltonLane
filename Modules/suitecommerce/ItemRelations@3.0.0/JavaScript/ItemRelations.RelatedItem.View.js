@@ -66,6 +66,7 @@ define(
 		//@returns {ItemViews.RelatedItem.View.Context}
 	,	getContext: function ()
 		{
+			console.log('this.model',this.model);
 			//@class ItemViews.RelatedItem.View.Context
 			return {
 				//@property {String} itemURL
@@ -80,6 +81,8 @@ define(
 			,	itemId: this.model.get('_id')
 				// @property {Item.Model} model
 			,	model: this.model
+
+			,	customShoeItem:!this.model.get('custitem_custom_shoe')
 
 				//TODO MOVE THIS TO THE PRODUCT REVIEWS MODULE
 				//@property {Boolean} showRating
